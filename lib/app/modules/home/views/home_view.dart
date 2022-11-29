@@ -22,7 +22,7 @@ class HomeView extends GetView<HomeController> {
               onScaleStart: (d) {},
               onScaleUpdate: (ScaleUpdateDetails details) {},
               child: CustomPaint(
-                painter: DebugPainter(),
+                painter: DebugPainter(controller.pixels),
               ),
             );
           },

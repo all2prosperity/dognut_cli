@@ -9,6 +9,7 @@ class HomeController extends GetxController {
   final count = 0.obs;
   bool isConnected = false;
   StreamSubscription<Uint8List>? stream;
+  Uint8List pixels = Uint8List(0);
 
   @override
   void onInit() {
@@ -23,7 +24,8 @@ class HomeController extends GetxController {
     Socket.connect("127.0.0.1", 9527).then((clientSocket) {
       stream = clientSocket.listen(
         (event) {
-          log('event : $event');
+          pixels = event;
+          update();
         },
       );
 
