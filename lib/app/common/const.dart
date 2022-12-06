@@ -1,0 +1,2 @@
+const UDP_PORT_BASE = 19522;
+const UPD_PORT_RANGE = 10;

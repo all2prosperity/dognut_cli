@@ -13,12 +13,15 @@ class DebugPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     int colorCount = 0;
+    if (pixels.length != 307200) {
+      return;
+    }
     for (int i = 0; i < 320; i++) {
       for (int j = 0; j < 240; j++) {
         int _color = 0;
         int start = j * 320 + i;
         for (int k = 3; k >= 0; k--) {
-          _color = (_color << 8) | pixels[start + k];
+          _color = (_color << 8) | pixels[start * 4 + k];
         }
         if (_color != 0) {
           colorCount += 1;
